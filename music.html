@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Music</title>
+</head>
+
+<body style="margin:0">
+
+<audio id="bgMusic" autoplay loop>
+
+<source src="vlc-record-2026-03-17-10h29m30s-Innunu Bekagide - Vasuki Vaibhav-(Fun2Desi.Com)-.mp3" type="audio/mpeg">
+
+</audio>
+
+<script>
+
+/* save music playing */
+
+if(!localStorage.getItem("musicPlaying")){
+
+localStorage.setItem("musicPlaying","true");
+
+}
+
+/* autoplay fix */
+
+document.addEventListener("click", function(){
+
+document.getElementById("bgMusic").play();
+
+});
+
+</script>
+
+</body>
+</html>
