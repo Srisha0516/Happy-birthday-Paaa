@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Open When... 💚</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+background:linear-gradient(135deg,#00ff88,#b8ffd8);
+position:relative;
+}
+
+/* floating hearts */
+
+.hearts span{
+position:absolute;
+bottom:-100px;
+font-size:24px;
+animation:float 10s linear infinite;
+opacity:0.7;
+}
+
+.hearts span:nth-child(1){left:10%;animation-duration:8s;}
+.hearts span:nth-child(2){left:20%;animation-duration:12s;}
+.hearts span:nth-child(3){left:35%;animation-duration:9s;}
+.hearts span:nth-child(4){left:50%;animation-duration:11s;}
+.hearts span:nth-child(5){left:65%;animation-duration:7s;}
+.hearts span:nth-child(6){left:80%;animation-duration:10s;}
+.hearts span:nth-child(7){left:90%;animation-duration:13s;}
+
+@keyframes float{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+/* heading */
+
+.heading{
+text-align:center;
+margin-bottom:40px;
+color:white;
+z-index:2;
+}
+
+.heading h1{
+font-size:60px;
+margin-bottom:10px;
+text-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.heading p{
+font-size:22px;
+}
+
+/* buttons */
+
+.buttons{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:25px;
+width:80%;
+z-index:2;
+}
+
+.buttons button{
+padding:18px 35px;
+border:none;
+border-radius:40px;
+background:white;
+color:#00aa66;
+font-size:20px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.buttons button:hover{
+transform:scale(1.08);
+}
+
+/* popup */
+
+.popup{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(0);
+width:70%;
+max-width:600px;
+background:white;
+padding:40px;
+border-radius:30px;
+text-align:center;
+box-shadow:0 10px 40px rgba(0,0,0,0.3);
+transition:0.4s;
+z-index:10;
+}
+
+.popup.active{
+transform:translate(-50%,-50%) scale(1);
+}
+
+.popup h2{
+color:#00aa66;
+margin-bottom:20px;
+font-size:36px;
+}
+
+.popup p{
+font-size:22px;
+line-height:1.8;
+color:#333;
+}
+
+.close-btn{
+margin-top:25px;
+padding:12px 30px;
+border:none;
+border-radius:30px;
+background:#00ff88;
+color:white;
+font-size:18px;
+cursor:pointer;
+}
+
+/* next button */
+
+.next-btn{
+margin-top:50px;
+z-index:2;
+}
+
+.next-btn button{
+padding:16px 45px;
+border:none;
+border-radius:40px;
+background:white;
+color:#00bb66;
+font-size:22px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 8px 20px rgba(0,0,0,0.25);
+}
+
+.next-btn button:hover{
+transform:scale(1.08);
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+.heading h1{
+font-size:38px;
+}
+
+.heading p{
+font-size:18px;
+}
+
+.buttons{
+width:95%;
+}
+
+.buttons button{
+font-size:16px;
+padding:15px 20px;
+}
+
+.popup{
+width:90%;
+padding:25px;
+}
+
+.popup h2{
+font-size:28px;
+}
+
+.popup p{
+font-size:18px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- hearts -->
+
+<div class="hearts">
+
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+
+</div>
+
+<!-- heading -->
+
+<div class="heading">
+
+<h1>Open When... 💚</h1>
+
+<p>Little letters for every moment ✨</p>
+
+</div>
+
+<!-- buttons -->
+
+<div class="buttons">
+
+<button onclick="openPopup('sad')">Open when you're sad 💚</button>
+
+<button onclick="openPopup('miss')">Open when you miss me ✨</button>
+
+<button onclick="openPopup('smile')">Open when you need a smile 🌸</button>
+
+<button onclick="openPopup('special')">Open when you feel alone 🫶</button>
+
+</div>
+
+<!-- popup -->
+
+<div class="popup" id="popup">
+
+<h2 id="popupTitle"></h2>
+
+<p id="popupText"></p>
+
+<button class="close-btn" onclick="closePopup()">Close 💚</button>
+
+</div>
+
+<!-- next -->
+
+<div class="next-btn">
+
+<button onclick="nextPage()">Final Universe 💚</button>
+
+</div>
+
+<script>
+
+/* popup messages */
+
+function openPopup(type){
+
+const popup = document.getElementById("popup");
+
+const title = document.getElementById("popupTitle");
+
+const text = document.getElementById("popupText");
+
+popup.classList.add("active");
+
+if(type=="sad"){
+
+title.innerHTML="For Your Sad Days 💚";
+
+text.innerHTML="No matter how difficult life feels sometimes... please remember that you are deeply appreciated, loved, and important ✨";
+
+}
+
+if(type=="miss"){
+
+title.innerHTML="When You Miss Me ✨";
+
+text.innerHTML="Distance or silence can never change how special you are to me 💚";
+
+}
+
+if(type=="smile"){
+
+title.innerHTML="A Little Smile 🌸";
+
+text.innerHTML="Your smile is honestly one of the prettiest things in this world 💖";
+
+}
+
+if(type=="special"){
+
+title.innerHTML="For Lonely Moments 🫶";
+
+text.innerHTML="Even on your worst days... you will never be alone 💚";
+
+}
+
+}
+
+/* close popup */
+
+function closePopup(){
+
+document.getElementById("popup").classList.remove("active");
+
+}
+
+/* next page */
+
+function nextPage(){
+
+window.location.href="universe.html";
+
+}
+
+</script>
+
+</body>
+
+</html>
