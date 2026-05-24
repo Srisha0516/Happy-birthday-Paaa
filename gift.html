@@ -106,6 +106,14 @@ color:white;
 text-shadow:0 3px 10px rgba(0,0,0,0.2);
 }
 
+/* 🎵 music player */
+
+audio{
+margin-top:20px;
+width:300px;
+border-radius:30px;
+}
+
 /* slideshow */
 
 .slideshow-container{
@@ -224,6 +232,10 @@ width:90%;
 height:420px;
 }
 
+audio{
+width:90%;
+}
+
 .next-btn button{
 font-size:18px;
 padding:14px 30px;
@@ -236,13 +248,6 @@ padding:14px 30px;
 </head>
 
 <body>
-
-<!-- 🎵 background music -->
-
-<iframe src="music.html"
-allow="autoplay"
-style="display:none">
-</iframe>
 
 <!-- 💚 floating hearts -->
 
@@ -263,6 +268,14 @@ style="display:none">
 <h1>Something for You 💚</h1>
 
 <div id="message"></div>
+
+<!-- 🎵 MUSIC -->
+
+<audio autoplay loop controls>
+
+<source src="vlc-record-2026-03-17-10h29m30s-Innunu Bekagide - Vasuki Vaibhav-(Fun2Desi.Com)-.mp3" type="audio/mpeg">
+
+</audio>
 
 <!-- SLIDESHOW -->
 
