@@ -14,7 +14,6 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-scroll-behavior:smooth;
 }
 
 body{
@@ -22,112 +21,23 @@ font-family:'Segoe UI',sans-serif;
 background:linear-gradient(135deg,#00ff88,#b8ffd8);
 overflow-x:hidden;
 color:white;
-position:relative;
-min-height:100vh;
-}
-
-/* ✨ glow */
-
-.glow{
-position:absolute;
-width:700px;
-height:700px;
-background:radial-gradient(circle,#00ff88 0%,transparent 70%);
-filter:blur(120px);
-opacity:0.25;
-animation:pulse 5s infinite alternate;
-z-index:0;
-}
-
-@keyframes pulse{
-
-from{
-transform:scale(1);
-opacity:0.2;
-}
-
-to{
-transform:scale(1.2);
-opacity:0.35;
-}
-
-}
-
-/* 💚 floating hearts */
-
-.hearts span{
-position:absolute;
-bottom:-100px;
-font-size:24px;
-animation:float 10s linear infinite;
-opacity:0.7;
-z-index:1;
-}
-
-.hearts span:nth-child(1){left:10%;animation-duration:8s;}
-.hearts span:nth-child(2){left:20%;animation-duration:12s;}
-.hearts span:nth-child(3){left:35%;animation-duration:9s;}
-.hearts span:nth-child(4){left:50%;animation-duration:11s;}
-.hearts span:nth-child(5){left:65%;animation-duration:7s;}
-.hearts span:nth-child(6){left:80%;animation-duration:10s;}
-.hearts span:nth-child(7){left:90%;animation-duration:13s;}
-
-@keyframes float{
-
-0%{
-transform:translateY(0) rotate(0deg);
-opacity:0;
-}
-
-50%{
-opacity:1;
-}
-
-100%{
-transform:translateY(-120vh) rotate(360deg);
-opacity:0;
-}
-
-}
-
-/* 🎵 hidden music */
-
-iframe{
-display:none;
 }
 
 /* heading */
 
 .heading{
 text-align:center;
-padding:70px 20px 30px;
-position:relative;
-z-index:2;
-animation:fadeDown 1.5s ease;
+padding:60px 20px 20px;
 }
 
 .heading h1{
-font-size:65px;
-margin-bottom:15px;
+font-size:60px;
+margin-bottom:10px;
 text-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
 .heading p{
-font-size:24px;
-}
-
-@keyframes fadeDown{
-
-from{
-opacity:0;
-transform:translateY(-30px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
+font-size:22px;
 }
 
 /* timeline */
@@ -137,7 +47,6 @@ position:relative;
 max-width:1200px;
 margin:50px auto;
 padding:20px 0;
-z-index:2;
 }
 
 /* center line */
@@ -152,16 +61,15 @@ bottom:0;
 left:50%;
 margin-left:-3px;
 border-radius:10px;
-box-shadow:0 0 15px rgba(255,255,255,0.6);
 }
 
-/* containers */
+/* container */
 
 .container{
 padding:20px 40px;
 position:relative;
 width:50%;
-animation:fadeIn 1.5s ease;
+animation:fadeIn 1s ease;
 }
 
 /* circles */
@@ -169,17 +77,17 @@ animation:fadeIn 1.5s ease;
 .container::after{
 content:'💚';
 position:absolute;
-width:45px;
-height:45px;
-right:-22px;
+width:40px;
+height:40px;
+right:-20px;
 background:white;
-top:35px;
+top:30px;
 border-radius:50%;
 display:flex;
 justify-content:center;
 align-items:center;
-font-size:22px;
-z-index:2;
+font-size:20px;
+z-index:1;
 box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
@@ -196,51 +104,38 @@ left:50%;
 }
 
 .right::after{
-left:-22px;
+left:-20px;
 }
 
-/* content cards */
+/* content */
 
 .content{
 padding:25px;
 background:rgba(255,255,255,0.2);
-backdrop-filter:blur(12px);
-border-radius:30px;
-box-shadow:0 12px 28px rgba(0,0,0,0.2);
+backdrop-filter:blur(10px);
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
 transition:0.4s;
-overflow:hidden;
 }
 
 .content:hover{
-transform:scale(1.04);
-box-shadow:0 18px 35px rgba(0,0,0,0.25);
-}
-
-/* images */
-
-.content img{
-width:100%;
-height:320px;
-object-fit:cover;
-border-radius:20px;
-margin-bottom:18px;
-transition:0.4s;
-}
-
-.content:hover img{
 transform:scale(1.03);
 }
 
-/* text */
+.content img{
+width:100%;
+border-radius:20px;
+margin-bottom:15px;
+}
 
 .content h2{
-margin-bottom:12px;
-font-size:34px;
+margin-bottom:10px;
+font-size:30px;
 }
 
 .content p{
-font-size:20px;
-line-height:1.8;
+font-size:18px;
+line-height:1.6;
 }
 
 /* animation */
@@ -263,46 +158,24 @@ transform:translateY(0);
 
 .next-btn{
 text-align:center;
-padding:70px 20px;
-position:relative;
-z-index:2;
+padding:50px;
 }
 
 .next-btn button{
-padding:18px 50px;
-font-size:22px;
+padding:15px 40px;
+font-size:20px;
 border:none;
-border-radius:45px;
+border-radius:40px;
 background:white;
 color:#00aa66;
 font-weight:bold;
 cursor:pointer;
 transition:0.3s;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
 }
 
 .next-btn button:hover{
 transform:scale(1.08);
-background:#f5fff9;
-}
-
-/* 💚 scrollbar */
-
-::-webkit-scrollbar{
-width:10px;
-}
-
-::-webkit-scrollbar-track{
-background:#c8ffe2;
-}
-
-::-webkit-scrollbar-thumb{
-background:#00cc77;
-border-radius:20px;
-}
-
-::-webkit-scrollbar-thumb:hover{
-background:#00aa66;
 }
 
 /* mobile */
@@ -315,7 +188,7 @@ left:30px;
 
 .container{
 width:100%;
-padding-left:75px;
+padding-left:70px;
 padding-right:25px;
 }
 
@@ -324,32 +197,11 @@ left:0%;
 }
 
 .container::after{
-left:8px;
+left:10px;
 }
 
 .heading h1{
-font-size:42px;
-}
-
-.heading p{
-font-size:18px;
-}
-
-.content h2{
-font-size:28px;
-}
-
-.content p{
-font-size:18px;
-}
-
-.content img{
-height:260px;
-}
-
-.next-btn button{
-font-size:18px;
-padding:15px 35px;
+font-size:40px;
 }
 
 }
@@ -359,30 +211,6 @@ padding:15px 35px;
 </head>
 
 <body>
-
-<!-- 🎵 background music -->
-
-<iframe src="music.html"
-allow="autoplay">
-</iframe>
-
-<!-- ✨ glow -->
-
-<div class="glow"></div>
-
-<!-- 💚 hearts -->
-
-<div class="hearts">
-
-<span>💚</span>
-<span>✨</span>
-<span>💚</span>
-<span>✨</span>
-<span>💚</span>
-<span>✨</span>
-<span>💚</span>
-
-</div>
 
 <!-- heading -->
 
@@ -427,7 +255,7 @@ The moment we met became one of my favorite memories forever ✨
 <h2>Funniest Day 😂</h2>
 
 <p>
-That day was full of laughter, happiness, and unforgettable moments 💚
+That day was full of laughter and happiness 💚
 </p>
 
 </div>
@@ -445,7 +273,7 @@ That day was full of laughter, happiness, and unforgettable moments 💚
 <h2>Best Moment 🌸</h2>
 
 <p>
-Some memories stay in the heart forever and become impossible to forget ✨
+Some memories stay in the heart forever ✨
 </p>
 
 </div>
@@ -463,7 +291,7 @@ Some memories stay in the heart forever and become impossible to forget ✨
 <h2>Favorite Photo 📸</h2>
 
 <p>
-One picture. Infinite emotions. Endless memories 💚
+One picture. Infinite emotions 💚
 </p>
 
 </div>
@@ -476,9 +304,7 @@ One picture. Infinite emotions. Endless memories 💚
 
 <div class="next-btn">
 
-<button onclick="nextPage()">
-Next Surprise 💚
-</button>
+<button onclick="nextPage()">Next Surprise 💚</button>
 
 </div>
 
