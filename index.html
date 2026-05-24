@@ -1,63 +1,215 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Enter the Secret</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Enter the Secret 💚</title>
 
 <style>
 
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-font-family:'Segoe UI', sans-serif;
-background:linear-gradient(to right,#00FF7F,#b8ffd8);
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#00FF7F,#b8ffd8);
+overflow:hidden;
+position:relative;
 }
+
+/* 💚 floating hearts */
+
+.hearts span{
+position:absolute;
+bottom:-100px;
+font-size:24px;
+animation:float 10s linear infinite;
+opacity:0.7;
+}
+
+.hearts span:nth-child(1){left:10%;animation-duration:8s;}
+.hearts span:nth-child(2){left:20%;animation-duration:12s;}
+.hearts span:nth-child(3){left:35%;animation-duration:9s;}
+.hearts span:nth-child(4){left:50%;animation-duration:11s;}
+.hearts span:nth-child(5){left:65%;animation-duration:7s;}
+.hearts span:nth-child(6){left:80%;animation-duration:10s;}
+.hearts span:nth-child(7){left:90%;animation-duration:13s;}
+
+@keyframes float{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+/* ✨ glowing background */
+
+.glow{
+position:absolute;
+width:600px;
+height:600px;
+background:radial-gradient(circle,#00ff88 0%,transparent 70%);
+filter:blur(120px);
+opacity:0.3;
+animation:pulse 5s infinite alternate;
+}
+
+@keyframes pulse{
+
+from{
+transform:scale(1);
+opacity:0.2;
+}
+
+to{
+transform:scale(1.2);
+opacity:0.35;
+}
+
+}
+
+/* 💚 container */
 
 .container{
-background:white;
-padding:50px;
-border-radius:25px;
+position:relative;
+z-index:2;
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(15px);
+padding:55px 40px;
+border-radius:35px;
 text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-width:400px;
+box-shadow:0 12px 35px rgba(0,0,0,0.25);
+width:420px;
+animation:popup 1.5s ease;
 }
+
+@keyframes popup{
+
+from{
+opacity:0;
+transform:scale(0.8);
+}
+
+to{
+opacity:1;
+transform:scale(1);
+}
+
+}
+
+/* heading */
 
 h1{
-color:#00b36b;
-margin-bottom:30px;
+font-size:42px;
+color:white;
+margin-bottom:18px;
+text-shadow:0 4px 12px rgba(0,0,0,0.2);
 }
 
+.subtitle{
+font-size:18px;
+color:white;
+margin-bottom:35px;
+}
+
+/* input */
+
 input{
-width:80%;
-padding:12px;
-border-radius:25px;
-border:2px solid #00FF7F;
-font-size:16px;
+width:100%;
+padding:16px;
+border:none;
+border-radius:40px;
+font-size:18px;
 outline:none;
+text-align:center;
+background:rgba(255,255,255,0.9);
+color:#055233;
+box-shadow:0 6px 15px rgba(0,0,0,0.15);
+transition:0.3s;
 }
 
 input:focus{
-border-color:#00b36b;
+transform:scale(1.03);
 }
 
+/* button */
+
 button{
-margin-top:25px;
-padding:12px 35px;
-background:#00FF7F;
+margin-top:28px;
+padding:16px 45px;
+background:white;
 border:none;
-border-radius:25px;
-color:#064d2f;
-font-size:18px;
+border-radius:40px;
+color:#00aa66;
+font-size:20px;
+font-weight:bold;
 cursor:pointer;
 transition:0.3s;
-font-weight:bold;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
 button:hover{
-background:#00cc66;
-transform:scale(1.05);
+background:#f3fff8;
+transform:scale(1.08);
+}
+
+/* error */
+
+#error{
+margin-top:18px;
+font-size:18px;
+color:white;
+font-weight:bold;
+min-height:25px;
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+.container{
+width:90%;
+padding:45px 25px;
+}
+
+h1{
+font-size:32px;
+}
+
+.subtitle{
+font-size:16px;
+}
+
+input{
+font-size:16px;
+}
+
+button{
+font-size:18px;
+padding:14px 35px;
+}
+
 }
 
 </style>
@@ -66,15 +218,54 @@ transform:scale(1.05);
 
 <body>
 
+<!-- ✨ glow -->
+
+<div class="glow"></div>
+
+<!-- 💚 hearts -->
+
+<div class="hearts">
+
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+
+</div>
+
+<!-- 🎵 background music -->
+
+<iframe src="music.html"
+allow="autoplay"
+style="display:none">
+</iframe>
+
+<!-- 💚 container -->
+
 <div class="container">
 
-<h1>Enter the Secret Code 🔐</h1>
+<h1>Enter the Secret 💚</h1>
 
-<input type="password" id="pass" placeholder="Enter password">
+<p class="subtitle">
+Only one special person knows the password ✨
+</p>
+
+<input
+type="password"
+id="pass"
+placeholder="Enter password 🔐"
+>
 
 <br>
 
-<button onclick="check()">Let me in 🔑</button>
+<button onclick="check()">
+Let Me In 💚
+</button>
+
+<div id="error"></div>
 
 </div>
 
@@ -82,19 +273,42 @@ transform:scale(1.05);
 
 function check(){
 
-var password=document.getElementById("pass").value;
+var password = document.getElementById("pass").value;
 
-if(password=="Mamsiii"){
-window.location.href="gift.html";
+if(password == "Mamsiii"){
+
+document.getElementById("error").innerHTML = "Opening your surprise... 💚✨";
+
+setTimeout(function(){
+
+window.location.href = "gift.html";
+
+},1200);
+
 }
 
 else{
-alert("Wrong password 😅");
+
+document.getElementById("error").innerHTML = "Wrong password 😅";
+
 }
 
 }
+
+/* enter key support */
+
+document.getElementById("pass").addEventListener("keypress",function(event){
+
+if(event.key === "Enter"){
+
+check();
+
+}
+
+});
 
 </script>
 
 </body>
+
 </html>
