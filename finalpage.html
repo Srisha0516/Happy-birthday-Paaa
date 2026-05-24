@@ -14,11 +14,14 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
-height:100vh;
-overflow:hidden;
+min-height:100vh;
+padding:40px 0;
+overflow-y:auto;
+overflow-x:hidden;
 font-family:'Segoe UI',sans-serif;
 display:flex;
 justify-content:center;
@@ -104,6 +107,7 @@ backdrop-filter:blur(14px);
 box-shadow:0 10px 40px rgba(255,255,255,0.08);
 text-align:center;
 animation:fadeUp 2s ease;
+margin:40px 0;
 }
 
 /* animation */
@@ -169,13 +173,14 @@ text-shadow:
 font-size:28px;
 line-height:1.8;
 color:#f1f1f1;
-min-height:120px;
+min-height:140px;
+margin-top:15px;
 }
 
 /* button */
 
 .end-btn{
-margin-top:35px;
+margin-top:40px;
 }
 
 .end-btn button{
@@ -193,6 +198,25 @@ box-shadow:0 8px 20px rgba(0,255,136,0.3);
 
 .end-btn button:hover{
 transform:scale(1.08);
+background:#7dffb3;
+}
+
+/* 💚 scrollbar */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#02150f;
+}
+
+::-webkit-scrollbar-thumb{
+background:#00ff88;
+border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
 background:#7dffb3;
 }
 
@@ -216,6 +240,7 @@ font-size:40px;
 
 #typing{
 font-size:20px;
+min-height:180px;
 }
 
 .end-btn button{
@@ -276,7 +301,9 @@ The End ✨
 /* typing effect */
 
 const message =
-"No matter where life takes us... 💚 you will always be special to me ✨ Thank you for every smile, every memory, and every beautiful moment. Some people are unforgettable... and you are one of them 🌸. I Love You Paa";
+"No matter where life takes us... 💚 you will always be special to me ✨ Thank you for every smile, every memory, and every beautiful moment. Some people are unforgettable... and you are one of them 🌸 I Love You Paa 💚";
+
+/* typing animation */
 
 let i = 0;
 
@@ -296,7 +323,7 @@ setTimeout(typeText,45);
 
 typeText();
 
-/* ending */
+/* end popup */
 
 function ending(){
 
