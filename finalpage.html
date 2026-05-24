@@ -272,6 +272,13 @@ width:100%;
 
 <body>
 
+<!-- 🎵 background music -->
+
+<iframe src="music.html"
+allow="autoplay"
+style="display:none">
+</iframe>
+
 <!-- glow -->
 
 <div class="bg-glow"></div>
@@ -354,6 +361,8 @@ alert("Happy Birthday Once Again 💚✨");
 /* 💚 back to password/start page */
 
 function goHome(){
+
+localStorage.removeItem("musicPlaying");
 
 window.location.href="index.html";
 
