@@ -14,49 +14,21 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-scroll-behavior:smooth;
 }
 
 body{
 font-family:'Segoe UI',sans-serif;
-min-height:100vh;
-overflow-x:hidden;
+height:100vh;
+overflow:hidden;
 display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
 background:linear-gradient(135deg,#00ff88,#b8ffd8);
 position:relative;
-padding:40px 20px;
 }
 
-/* ✨ glow */
-
-.glow{
-position:absolute;
-width:650px;
-height:650px;
-background:radial-gradient(circle,#00ff88 0%,transparent 70%);
-filter:blur(120px);
-opacity:0.25;
-animation:pulse 5s infinite alternate;
-}
-
-@keyframes pulse{
-
-from{
-transform:scale(1);
-opacity:0.2;
-}
-
-to{
-transform:scale(1.2);
-opacity:0.35;
-}
-
-}
-
-/* 💚 floating hearts */
+/* floating hearts */
 
 .hearts span{
 position:absolute;
@@ -96,34 +68,19 @@ opacity:0;
 
 .heading{
 text-align:center;
-margin-bottom:50px;
+margin-bottom:40px;
 color:white;
 z-index:2;
-animation:fadeDown 1.5s ease;
 }
 
 .heading h1{
-font-size:65px;
-margin-bottom:12px;
+font-size:60px;
+margin-bottom:10px;
 text-shadow:0 5px 15px rgba(0,0,0,0.2);
 }
 
 .heading p{
-font-size:24px;
-}
-
-@keyframes fadeDown{
-
-from{
-opacity:0;
-transform:translateY(-30px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
+font-size:22px;
 }
 
 /* buttons */
@@ -133,28 +90,25 @@ display:flex;
 flex-wrap:wrap;
 justify-content:center;
 gap:25px;
-width:90%;
-max-width:1100px;
+width:80%;
 z-index:2;
 }
 
 .buttons button{
-padding:20px 35px;
+padding:18px 35px;
 border:none;
-border-radius:45px;
-background:rgba(255,255,255,0.95);
+border-radius:40px;
+background:white;
 color:#00aa66;
 font-size:20px;
 font-weight:bold;
 cursor:pointer;
 transition:0.3s;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-min-width:280px;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
 }
 
 .buttons button:hover{
 transform:scale(1.08);
-background:#f5fff9;
 }
 
 /* popup */
@@ -164,16 +118,15 @@ position:fixed;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%) scale(0);
-width:75%;
-max-width:650px;
-background:rgba(255,255,255,0.95);
-backdrop-filter:blur(12px);
-padding:45px;
-border-radius:35px;
+width:70%;
+max-width:600px;
+background:white;
+padding:40px;
+border-radius:30px;
 text-align:center;
-box-shadow:0 15px 40px rgba(0,0,0,0.3);
+box-shadow:0 10px 40px rgba(0,0,0,0.3);
 transition:0.4s;
-z-index:20;
+z-index:10;
 }
 
 .popup.active{
@@ -182,76 +135,49 @@ transform:translate(-50%,-50%) scale(1);
 
 .popup h2{
 color:#00aa66;
-margin-bottom:25px;
-font-size:40px;
+margin-bottom:20px;
+font-size:36px;
 }
 
 .popup p{
-font-size:24px;
-line-height:1.9;
+font-size:22px;
+line-height:1.8;
 color:#333;
 }
 
-/* close button */
-
 .close-btn{
-margin-top:30px;
-padding:14px 35px;
+margin-top:25px;
+padding:12px 30px;
 border:none;
-border-radius:35px;
+border-radius:30px;
 background:#00ff88;
 color:white;
 font-size:18px;
-font-weight:bold;
 cursor:pointer;
-transition:0.3s;
-}
-
-.close-btn:hover{
-transform:scale(1.08);
-background:#00cc66;
-}
-
-/* overlay */
-
-.overlay{
-position:fixed;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.4);
-top:0;
-left:0;
-display:none;
-z-index:15;
-}
-
-.overlay.active{
-display:block;
 }
 
 /* next button */
 
 .next-btn{
-margin-top:60px;
+margin-top:50px;
 z-index:2;
 }
 
 .next-btn button{
-padding:18px 50px;
+padding:16px 45px;
 border:none;
-border-radius:45px;
+border-radius:40px;
 background:white;
 color:#00bb66;
 font-size:22px;
 font-weight:bold;
 cursor:pointer;
 transition:0.3s;
-box-shadow:0 10px 25px rgba(0,0,0,0.25);
+box-shadow:0 8px 20px rgba(0,0,0,0.25);
 }
 
 .next-btn button:hover{
 transform:scale(1.08);
-background:#f3fff8;
 }
 
 /* mobile */
@@ -259,7 +185,7 @@ background:#f3fff8;
 @media(max-width:768px){
 
 .heading h1{
-font-size:42px;
+font-size:38px;
 }
 
 .heading p{
@@ -267,31 +193,25 @@ font-size:18px;
 }
 
 .buttons{
-width:100%;
+width:95%;
 }
 
 .buttons button{
 font-size:16px;
-padding:16px 20px;
-min-width:100%;
+padding:15px 20px;
 }
 
 .popup{
-width:92%;
-padding:30px 20px;
+width:90%;
+padding:25px;
 }
 
 .popup h2{
-font-size:30px;
+font-size:28px;
 }
 
 .popup p{
 font-size:18px;
-}
-
-.next-btn button{
-font-size:18px;
-padding:15px 35px;
 }
 
 }
@@ -302,18 +222,7 @@ padding:15px 35px;
 
 <body>
 
-<!-- 🎵 music -->
-
-<iframe src="music.html"
-allow="autoplay"
-style="display:none">
-</iframe>
-
-<!-- ✨ glow -->
-
-<div class="glow"></div>
-
-<!-- 💚 hearts -->
+<!-- hearts -->
 
 <div class="hearts">
 
@@ -326,10 +235,6 @@ style="display:none">
 <span>💚</span>
 
 </div>
-
-<!-- overlay -->
-
-<div class="overlay" id="overlay"></div>
 
 <!-- heading -->
 
@@ -345,21 +250,13 @@ style="display:none">
 
 <div class="buttons">
 
-<button onclick="openPopup('sad')">
-Open when you're sad 💚
-</button>
+<button onclick="openPopup('sad')">Open when you're sad 💚</button>
 
-<button onclick="openPopup('miss')">
-Open when you miss me ✨
-</button>
+<button onclick="openPopup('miss')">Open when you miss me ✨</button>
 
-<button onclick="openPopup('smile')">
-Open when you need a smile 🌸
-</button>
+<button onclick="openPopup('smile')">Open when you need a smile 🌸</button>
 
-<button onclick="openPopup('special')">
-Open when you feel alone 🫶
-</button>
+<button onclick="openPopup('special')">Open when you feel alone 🫶</button>
 
 </div>
 
@@ -371,31 +268,25 @@ Open when you feel alone 🫶
 
 <p id="popupText"></p>
 
-<button class="close-btn" onclick="closePopup()">
-Close 💚
-</button>
+<button class="close-btn" onclick="closePopup()">Close 💚</button>
 
 </div>
 
-<!-- next button -->
+<!-- next -->
 
 <div class="next-btn">
 
-<button onclick="nextPage()">
-Final Universe 💚
-</button>
+<button onclick="nextPage()">Final Universe 💚</button>
 
 </div>
 
 <script>
 
-/* 💚 popup messages */
+/* popup messages */
 
 function openPopup(type){
 
 const popup = document.getElementById("popup");
-
-const overlay = document.getElementById("overlay");
 
 const title = document.getElementById("popupTitle");
 
@@ -403,14 +294,11 @@ const text = document.getElementById("popupText");
 
 popup.classList.add("active");
 
-overlay.classList.add("active");
-
 if(type=="sad"){
 
 title.innerHTML="For Your Sad Days 💚";
 
-text.innerHTML=
-"No matter how difficult life feels sometimes... please remember that you are deeply appreciated, loved, and important ✨ Better days are waiting for you 💚";
+text.innerHTML="No matter how difficult life feels sometimes... please remember that you are deeply appreciated, loved, and important ✨";
 
 }
 
@@ -418,8 +306,7 @@ if(type=="miss"){
 
 title.innerHTML="When You Miss Me ✨";
 
-text.innerHTML=
-"Distance or silence can never change how special you are to me 💚 Anytime you need me, I'm always just one call away 🌸";
+text.innerHTML="Distance or silence can never change how special you are to me 💚";
 
 }
 
@@ -427,8 +314,7 @@ if(type=="smile"){
 
 title.innerHTML="A Little Smile 🌸";
 
-text.innerHTML=
-"Your smile is honestly one of the prettiest things in this world 💖 Never lose that beautiful smile because it makes everything brighter ✨";
+text.innerHTML="Your smile is honestly one of the prettiest things in this world 💖";
 
 }
 
@@ -436,8 +322,7 @@ if(type=="special"){
 
 title.innerHTML="For Lonely Moments 🫶";
 
-text.innerHTML=
-"Even on your worst days... you will never be alone 💚 No matter what happens, I will always care about you and be there for you ✨";
+text.innerHTML="Even on your worst days... you will never be alone 💚";
 
 }
 
@@ -448,8 +333,6 @@ text.innerHTML=
 function closePopup(){
 
 document.getElementById("popup").classList.remove("active");
-
-document.getElementById("overlay").classList.remove("active");
 
 }
 
