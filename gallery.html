@@ -14,6 +14,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
 body{
@@ -22,24 +23,80 @@ background:linear-gradient(135deg,#00ff88,#b8ffd8);
 overflow-x:hidden;
 padding:50px 20px;
 min-height:100vh;
+position:relative;
+}
+
+/* ✨ floating hearts */
+
+.hearts span{
+position:absolute;
+bottom:-100px;
+font-size:24px;
+animation:float 10s linear infinite;
+opacity:0.7;
+color:white;
+}
+
+.hearts span:nth-child(1){left:10%;animation-duration:8s;}
+.hearts span:nth-child(2){left:20%;animation-duration:12s;}
+.hearts span:nth-child(3){left:35%;animation-duration:9s;}
+.hearts span:nth-child(4){left:50%;animation-duration:11s;}
+.hearts span:nth-child(5){left:65%;animation-duration:7s;}
+.hearts span:nth-child(6){left:80%;animation-duration:10s;}
+.hearts span:nth-child(7){left:90%;animation-duration:13s;}
+
+@keyframes float{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+
 }
 
 /* heading */
 
 .heading{
 text-align:center;
-margin-bottom:50px;
+margin-bottom:60px;
 color:white;
+position:relative;
+z-index:2;
 }
 
 .heading h1{
-font-size:60px;
-margin-bottom:10px;
-text-shadow:0 5px 15px rgba(0,0,0,0.2);
+font-size:65px;
+margin-bottom:15px;
+text-shadow:0 5px 15px rgba(0,0,0,0.25);
+animation:fadeDown 1.5s ease;
 }
 
 .heading p{
-font-size:22px;
+font-size:24px;
+animation:fadeDown 2s ease;
+}
+
+@keyframes fadeDown{
+
+from{
+opacity:0;
+transform:translateY(-30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
 }
 
 /* gallery */
@@ -48,21 +105,23 @@ font-size:22px;
 display:flex;
 flex-wrap:wrap;
 justify-content:center;
-gap:40px;
+gap:50px;
+position:relative;
+z-index:2;
 }
 
 /* polaroid */
 
 .polaroid{
-width:280px;
+width:290px;
 background:white;
 padding:15px 15px 70px;
-border-radius:10px;
-box-shadow:0 10px 25px rgba(0,0,0,0.25);
+border-radius:12px;
+box-shadow:0 12px 28px rgba(0,0,0,0.3);
 position:relative;
-transition:0.4s;
+transition:0.5s;
 transform:rotate(-3deg);
-animation:float 4s ease-in-out infinite;
+animation:floatCard 4s ease-in-out infinite;
 }
 
 .polaroid:nth-child(even){
@@ -71,40 +130,46 @@ transform:rotate(3deg);
 
 .polaroid:hover{
 transform:scale(1.08) rotate(0deg);
+box-shadow:0 18px 35px rgba(0,0,0,0.35);
 }
 
 /* image */
 
 .polaroid img{
 width:100%;
-height:300px;
+height:320px;
 object-fit:cover;
-border-radius:8px;
+border-radius:10px;
+transition:0.4s;
+}
+
+.polaroid:hover img{
+filter:brightness(1.05);
 }
 
 /* caption */
 
 .caption{
 position:absolute;
-bottom:20px;
+bottom:18px;
 width:100%;
 left:0;
 text-align:center;
-font-size:22px;
+font-size:24px;
 font-family:cursive;
 color:#333;
 }
 
 /* floating animation */
 
-@keyframes float{
+@keyframes floatCard{
 
 0%{
 transform:translateY(0px);
 }
 
 50%{
-transform:translateY(-10px);
+transform:translateY(-12px);
 }
 
 100%{
@@ -117,24 +182,46 @@ transform:translateY(0px);
 
 .next-btn{
 text-align:center;
-margin-top:70px;
+margin-top:80px;
+position:relative;
+z-index:2;
 }
 
 .next-btn button{
-padding:16px 45px;
+padding:18px 50px;
 border:none;
-border-radius:40px;
+border-radius:45px;
 background:white;
 color:#00bb66;
 font-size:22px;
 font-weight:bold;
 cursor:pointer;
 transition:0.3s;
-box-shadow:0 8px 20px rgba(0,0,0,0.25);
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
 }
 
 .next-btn button:hover{
 transform:scale(1.08);
+background:#f3fff8;
+}
+
+/* 💚 scrollbar */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#c8ffe2;
+}
+
+::-webkit-scrollbar-thumb{
+background:#00cc77;
+border-radius:20px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+background:#00aa66;
 }
 
 /* mobile */
@@ -142,7 +229,7 @@ transform:scale(1.08);
 @media(max-width:768px){
 
 .heading h1{
-font-size:40px;
+font-size:42px;
 }
 
 .heading p{
@@ -153,6 +240,15 @@ font-size:18px;
 width:90%;
 }
 
+.polaroid img{
+height:280px;
+}
+
+.next-btn button{
+font-size:18px;
+padding:15px 35px;
+}
+
 }
 
 </style>
@@ -160,6 +256,27 @@ width:90%;
 </head>
 
 <body>
+
+<!-- 🎵 background music -->
+
+<iframe src="music.html"
+allow="autoplay"
+style="display:none">
+</iframe>
+
+<!-- 💚 floating hearts -->
+
+<div class="hearts">
+
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+
+</div>
 
 <!-- heading -->
 
@@ -229,7 +346,9 @@ Special Moment 💚
 
 <div class="next-btn">
 
-<button onclick="nextPage()">Final Surprise 💚</button>
+<button onclick="nextPage()">
+Final Surprise 💚
+</button>
 
 </div>
 
