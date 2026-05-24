@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>You Deserve The Universe 💚</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(to bottom,#020111,#000000);
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+color:white;
+}
+
+/* ✨ stars */
+
+.stars{
+position:absolute;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:0;
+}
+
+.star{
+position:absolute;
+width:3px;
+height:3px;
+background:white;
+border-radius:50%;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{
+opacity:0.2;
+transform:scale(1);
+}
+to{
+opacity:1;
+transform:scale(1.8);
+}
+}
+
+/* 💚 floating hearts */
+
+.hearts span{
+position:absolute;
+bottom:-100px;
+font-size:25px;
+animation:float 10s linear infinite;
+opacity:0.7;
+}
+
+.hearts span:nth-child(1){left:10%;animation-duration:8s;}
+.hearts span:nth-child(2){left:20%;animation-duration:12s;}
+.hearts span:nth-child(3){left:35%;animation-duration:9s;}
+.hearts span:nth-child(4){left:50%;animation-duration:11s;}
+.hearts span:nth-child(5){left:65%;animation-duration:7s;}
+.hearts span:nth-child(6){left:80%;animation-duration:10s;}
+.hearts span:nth-child(7){left:90%;animation-duration:13s;}
+
+@keyframes float{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+}
+
+/* 🌌 center message */
+
+.message-box{
+position:relative;
+z-index:2;
+text-align:center;
+padding:60px;
+width:75%;
+border-radius:35px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(12px);
+box-shadow:0 10px 40px rgba(255,255,255,0.08);
+animation:fadeUp 2s ease;
+}
+
+.message-box h1{
+font-size:70px;
+margin-bottom:25px;
+text-shadow:0 0 25px rgba(255,255,255,0.5);
+}
+
+.message-box p{
+font-size:28px;
+line-height:1.8;
+color:#f1f1f1;
+}
+
+/* ✨ glow effect */
+
+.glow{
+color:#7dffb3;
+text-shadow:
+0 0 10px #7dffb3,
+0 0 20px #7dffb3,
+0 0 40px #7dffb3;
+}
+
+/* 🎆 fireworks */
+
+.firework{
+position:absolute;
+width:6px;
+height:6px;
+border-radius:50%;
+background:white;
+animation:explode 1.5s ease-out infinite;
+}
+
+.f1{
+top:20%;
+left:15%;
+animation-delay:0s;
+}
+
+.f2{
+top:25%;
+right:20%;
+animation-delay:1s;
+}
+
+.f3{
+bottom:20%;
+left:25%;
+animation-delay:2s;
+}
+
+.f4{
+bottom:25%;
+right:15%;
+animation-delay:3s;
+}
+
+@keyframes explode{
+0%{
+transform:scale(0);
+opacity:1;
+box-shadow:
+0 0 0 white,
+0 0 0 white,
+0 0 0 white,
+0 0 0 white;
+}
+
+100%{
+transform:scale(1);
+opacity:0;
+box-shadow:
+0 -80px 0 #00ff88,
+0 80px 0 #7dffb3,
+80px 0 0 #ffffff,
+-80px 0 0 #00ffaa;
+}
+}
+
+/* 🌠 animation */
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(50px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* 💚 button */
+
+.next-btn{
+margin-top:35px;
+}
+
+.next-btn button{
+padding:16px 45px;
+border:none;
+border-radius:40px;
+font-size:22px;
+font-weight:bold;
+cursor:pointer;
+background:#00ff88;
+color:#022b1b;
+transition:0.3s;
+box-shadow:0 8px 20px rgba(0,255,136,0.3);
+}
+
+.next-btn button:hover{
+transform:scale(1.08);
+background:#7dffb3;
+}
+
+/* 📱 mobile */
+
+@media(max-width:768px){
+
+.message-box{
+width:92%;
+padding:35px 20px;
+}
+
+.message-box h1{
+font-size:40px;
+}
+
+.message-box p{
+font-size:20px;
+}
+
+.next-btn button{
+font-size:18px;
+padding:14px 30px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ✨ stars -->
+
+<div class="stars"></div>
+
+<!-- 💚 hearts -->
+
+<div class="hearts">
+
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+
+</div>
+
+<!-- 🎆 fireworks -->
+
+<div class="firework f1"></div>
+<div class="firework f2"></div>
+<div class="firework f3"></div>
+<div class="firework f4"></div>
+
+<!-- 🌌 message -->
+
+<div class="message-box">
+
+<h1 class="glow">You Deserve The Universe 💚</h1>
+
+<p id="typing"></p>
+
+<div class="next-btn">
+
+<button onclick="finish()">Forever Special 💚</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* ✨ generate stars */
+
+const starsContainer = document.querySelector(".stars");
+
+for(let i=0;i<200;i++){
+
+let star = document.createElement("div");
+
+star.classList.add("star");
+
+star.style.top = Math.random()*100 + "%";
+
+star.style.left = Math.random()*100 + "%";
+
+star.style.animationDuration = (Math.random()*3+1)+"s";
+
+starsContainer.appendChild(star);
+
+}
+
+/* 💚 typing effect */
+
+const message = "No matter where life takes us... some people remain special forever 💚 You are one of those rare people who made my world brighter, happier, and more beautiful ✨";
+
+let i = 0;
+
+function typeText(){
+
+if(i < message.length){
+
+document.getElementById("typing").innerHTML += message.charAt(i);
+
+i++;
+
+setTimeout(typeText,40);
+
+}
+
+}
+
+typeText();
+
+/* 💚 final button */
+
+function finish(){
+
+alert("Happy Birthday Once Again 💚✨");
+
+}
+
+</script>
+
+</body>
+
+</html>
