@@ -12,6 +12,7 @@ font-family:'Segoe UI',sans-serif;
 text-align:center;
 background:linear-gradient(to right,#00FF7F,#b8ffd8);
 color:#064d2f;
+overflow-x:hidden;
 }
 
 .container{
@@ -21,39 +22,50 @@ padding-bottom:120px;
 
 h1{
 margin-bottom:20px;
+font-size:55px;
 }
 
+/* typing message */
 #message{
 font-size:28px;
 font-weight:bold;
 min-height:60px;
 margin-bottom:30px;
+padding:0 40px;
+line-height:1.5;
 }
 
 audio{
 margin:20px 0;
 }
 
-/* gallery */
-.gallery{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:20px;
-margin-top:20px;
+/* slideshow */
+.slideshow-container{
+width:320px;
+height:420px;
+margin:40px auto;
+position:relative;
 }
 
-.gallery img{
-width:220px;
-height:220px;
+.slide{
+width:100%;
+height:100%;
 object-fit:cover;
-border-radius:20px;
-box-shadow:0 10px 20px rgba(0,0,0,0.2);
-transition:0.3s;
+border-radius:25px;
+position:absolute;
+left:0;
+top:0;
+opacity:0;
+transition:opacity 1.2s ease-in-out, transform 0.5s;
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
 }
 
-.gallery img:hover{
-transform:scale(1.08);
+.slide.active{
+opacity:1;
+}
+
+.slide:hover{
+transform:scale(1.03);
 }
 
 /* next button */
@@ -71,7 +83,7 @@ background:#00FF7F;
 border:none;
 border-radius:30px;
 color:#064d2f;
-font-size:18px;
+font-size:20px;
 cursor:pointer;
 font-weight:bold;
 box-shadow:0 8px 20px rgba(0,0,0,0.3);
@@ -101,13 +113,16 @@ transform:scale(1.08);
 <source src="vlc-record-2026-03-17-10h29m30s-Innunu Bekagide - Vasuki Vaibhav-(Fun2Desi.Com)-.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 📸 YOUR PHOTOS -->
-<div class="gallery">
+<!-- 📸 SLIDESHOW -->
+<div class="slideshow-container">
 
-<img src="0ad38ac2-9111-43c8-ad9a-cce2799ec1a7.jpg">
-<img src="f7fba758-3420-4588-8362-21aed5b70d36.jpg">
-<img src="4ca1a41d-4a98-41de-99b9-a01d5cf987ae.jpg">
-<img src="1ad18c1e-b076-41b1-98bb-d322c08e0744.jpg">
+<img class="slide active" src="0ad38ac2-9111-43c8-ad9a-cce2799ec1a7.jpg">
+
+<img class="slide" src="f7fba758-3420-4588-8362-21aed5b70d36.jpg">
+
+<img class="slide" src="4ca1a41d-4a98-41de-99b9-a01d5cf987ae.jpg">
+
+<img class="slide" src="1ad18c1e-b076-41b1-98bb-d322c08e0744.jpg">
 
 </div>
 
@@ -121,23 +136,56 @@ transform:scale(1.08);
 <script>
 
 // typing effect
-var text="You are one of the most special people in my life... 💚 Thank you for all the smiles, memories, and moments we share.";
+var text = "You are one of the most special people in my life... 💚 Thank you for all the smiles, memories, and moments we share.";
 
-var i=0;
+var i = 0;
 
 function typing(){
-if(i<text.length){
-document.getElementById("message").innerHTML+=text.charAt(i);
+
+if(i < text.length){
+
+document.getElementById("message").innerHTML += text.charAt(i);
+
 i++;
+
 setTimeout(typing,40);
+
 }
+
 }
 
 typing();
 
+
+// slideshow
+let slides = document.querySelectorAll(".slide");
+
+let index = 0;
+
+function showSlides(){
+
+slides.forEach((slide)=>{
+slide.classList.remove("active");
+});
+
+index++;
+
+if(index >= slides.length){
+index = 0;
+}
+
+slides[index].classList.add("active");
+
+}
+
+setInterval(showSlides,2500);
+
+
 // next page
 function nextPage(){
-window.location.href="message.html";
+
+window.location.href = "message.html";
+
 }
 
 </script>
