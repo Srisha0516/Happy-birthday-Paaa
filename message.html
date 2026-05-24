@@ -37,7 +37,7 @@ z-index:0;
 .hearts span{
 position:absolute;
 bottom:-100px;
-font-size:22px;
+font-size:25px;
 animation:float 10s linear infinite;
 opacity:0.7;
 }
@@ -81,14 +81,14 @@ animation-delay:3s;
 }
 
 #birthday h1{
-font-size:70px;
+font-size:75px;
 margin-bottom:20px;
 text-shadow:0 5px 15px rgba(0,0,0,0.2);
 animation:zoom 2s infinite alternate;
 }
 
 #birthday p{
-font-size:28px;
+font-size:30px;
 }
 
 @keyframes zoom{
@@ -124,14 +124,15 @@ top:50%;
 left:50%;
 transform:translate(-50%,-50%);
 width:65%;
-padding:45px;
-border-radius:30px;
-background:rgba(255,255,255,0.2);
-backdrop-filter:blur(15px);
-box-shadow:0 10px 40px rgba(0,0,0,0.2);
+padding:50px;
+border-radius:35px;
+background:rgba(255,255,255,0.18);
+backdrop-filter:blur(18px);
+box-shadow:0 10px 40px rgba(0,0,0,0.25);
 text-align:center;
 z-index:2;
 animation:popup 1.2s ease;
+border:1px solid rgba(255,255,255,0.3);
 }
 
 @keyframes popup{
@@ -146,14 +147,14 @@ opacity:1;
 }
 
 .message-box h2{
-font-size:50px;
+font-size:55px;
 margin-bottom:25px;
 color:#ffffff;
-text-shadow:0 3px 10px rgba(0,0,0,0.2);
+text-shadow:0 3px 10px rgba(0,0,0,0.25);
 }
 
 #text{
-font-size:28px;
+font-size:29px;
 line-height:1.8;
 font-weight:500;
 color:#ffffff;
@@ -163,13 +164,14 @@ color:#ffffff;
 
 .photo{
 position:absolute;
-width:150px;
-height:150px;
+width:160px;
+height:160px;
 object-fit:cover;
 border-radius:25px;
-box-shadow:0 10px 25px rgba(0,0,0,0.3);
+box-shadow:0 10px 25px rgba(0,0,0,0.35);
 animation:floatPhoto 4s ease-in-out infinite;
 transition:0.4s;
+border:4px solid rgba(255,255,255,0.4);
 }
 
 .photo:hover{
@@ -196,20 +198,48 @@ transform:translateY(0px);
 .p4{top:28%;right:8%;}
 .p5{bottom:8%;left:10%;}
 .p6{bottom:8%;right:10%;}
-.p7{top:70%;left:42%;}
+.p7{top:72%;left:42%;}
 .p8{top:8%;left:42%;}
+
+/* button */
+
+.next-btn{
+position:absolute;
+bottom:30px;
+left:50%;
+transform:translateX(-50%);
+z-index:5;
+}
+
+.next-btn button{
+padding:16px 45px;
+border:none;
+border-radius:40px;
+background:white;
+color:#00bb66;
+font-size:22px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 8px 20px rgba(0,0,0,0.25);
+transition:0.3s;
+}
+
+.next-btn button:hover{
+transform:scale(1.08);
+background:#f1fff7;
+}
 
 /* mobile */
 
 @media(max-width:768px){
 
 .message-box{
-width:90%;
+width:92%;
 padding:25px;
 }
 
 .message-box h2{
-font-size:32px;
+font-size:34px;
 }
 
 #text{
@@ -222,11 +252,16 @@ height:90px;
 }
 
 #birthday h1{
-font-size:42px;
+font-size:45px;
 }
 
 #birthday p{
 font-size:20px;
+}
+
+.next-btn button{
+font-size:18px;
+padding:14px 35px;
 }
 
 }
@@ -267,13 +302,13 @@ font-size:20px;
 
 <div class="message-box">
 
-<h2> For me...💚</h2>
+<h2>For Me... 💚</h2>
 
 <p id="text"></p>
 
 </div>
 
-<!-- photos -->
+<!-- 📸 photos -->
 
 <img src="be3d9d03-9171-4a28-a863-80d63b6383cf.jpg" class="photo p1">
 
@@ -291,11 +326,19 @@ font-size:20px;
 
 <img src="811d6136-3607-4825-9aa8-fb04ce182d00.jpg" class="photo p8">
 
+<!-- 💚 next button -->
+
+<div class="next-btn">
+
+<button onclick="nextPage()">Next Surprise 💚</button>
+
+</div>
+
 </div>
 
 <script>
 
-/* show main page */
+/* show main */
 
 setTimeout(function(){
 
@@ -323,6 +366,14 @@ i++;
 setTimeout(startTyping,35);
 
 }
+
+}
+
+/* next page */
+
+function nextPage(){
+
+window.location.href="memories.html";
 
 }
 
