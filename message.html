@@ -22,6 +22,7 @@ background:linear-gradient(135deg,#00ff88,#b8ffd8);
 overflow:hidden;
 height:100vh;
 color:white;
+position:relative;
 }
 
 /* ✨ floating hearts */
@@ -61,6 +62,32 @@ opacity:1;
 100%{
 transform:translateY(-120vh) rotate(360deg);
 opacity:0;
+}
+}
+
+/* ✨ glow background */
+
+.glow{
+position:absolute;
+width:600px;
+height:600px;
+background:radial-gradient(circle,#ffffff55 0%,transparent 70%);
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+filter:blur(100px);
+z-index:0;
+animation:pulse 5s infinite alternate;
+}
+
+@keyframes pulse{
+from{
+transform:translate(-50%,-50%) scale(1);
+opacity:0.3;
+}
+to{
+transform:translate(-50%,-50%) scale(1.2);
+opacity:0.5;
 }
 }
 
@@ -107,7 +134,7 @@ visibility:hidden;
 }
 }
 
-/* 💚 main content */
+/* 💚 main */
 
 #main{
 display:none;
@@ -158,9 +185,10 @@ font-size:29px;
 line-height:1.8;
 font-weight:500;
 color:#ffffff;
+min-height:120px;
 }
 
-/* 📸 floating photos */
+/* 📸 photos */
 
 .photo{
 position:absolute;
@@ -201,7 +229,7 @@ transform:translateY(0px);
 .p7{top:72%;left:42%;}
 .p8{top:8%;left:42%;}
 
-/* button */
+/* 💚 next button */
 
 .next-btn{
 position:absolute;
@@ -229,7 +257,7 @@ transform:scale(1.08);
 background:#f1fff7;
 }
 
-/* mobile */
+/* 📱 mobile */
 
 @media(max-width:768px){
 
@@ -284,6 +312,10 @@ padding:14px 35px;
 <span>💚</span>
 </div>
 
+<!-- ✨ glow -->
+
+<div class="glow"></div>
+
 <!-- 🎉 intro -->
 
 <div id="birthday">
@@ -298,7 +330,7 @@ padding:14px 35px;
 
 <div id="main">
 
-<!-- message -->
+<!-- 💚 message -->
 
 <div class="message-box">
 
@@ -338,7 +370,7 @@ padding:14px 35px;
 
 <script>
 
-/* show main */
+/* 🎉 show main */
 
 setTimeout(function(){
 
@@ -348,10 +380,9 @@ startTyping();
 
 },3000);
 
+/* 💚 typing text */
 
-/* typing text */
-
-var msg="You are someone who brings happiness wherever you go... 💚 Your smile makes everything brighter, your presence makes every moment beautiful, and you truly mean so much to me ✨💚";
+var msg="You are one of the most beautiful parts of my life 💚 Every moment with you feels happier, brighter, and more special ✨ Thank you for being you 🌸";
 
 var i=0;
 
@@ -369,7 +400,7 @@ setTimeout(startTyping,35);
 
 }
 
-/* next page */
+/* 💚 next page */
 
 function nextPage(){
 
