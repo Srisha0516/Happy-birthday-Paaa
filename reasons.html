@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Why You're Special 💚</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+font-family:'Segoe UI',sans-serif;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#00ff88,#b8ffd8);
+animation:bgMove 10s infinite alternate;
+position:relative;
+}
+
+/* animated background */
+
+@keyframes bgMove{
+
+0%{
+background:linear-gradient(135deg,#00ff88,#b8ffd8);
+}
+
+100%{
+background:linear-gradient(135deg,#00c96b,#7dffd0);
+}
+
+}
+
+/* floating hearts */
+
+.hearts span{
+position:absolute;
+bottom:-100px;
+font-size:25px;
+animation:float 10s linear infinite;
+opacity:0.7;
+}
+
+.hearts span:nth-child(1){left:10%;animation-duration:8s;}
+.hearts span:nth-child(2){left:20%;animation-duration:12s;}
+.hearts span:nth-child(3){left:35%;animation-duration:9s;}
+.hearts span:nth-child(4){left:50%;animation-duration:11s;}
+.hearts span:nth-child(5){left:65%;animation-duration:7s;}
+.hearts span:nth-child(6){left:80%;animation-duration:10s;}
+.hearts span:nth-child(7){left:90%;animation-duration:13s;}
+
+@keyframes float{
+
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+
+}
+
+/* card */
+
+.card{
+width:380px;
+padding:25px;
+border-radius:30px;
+background:rgba(255,255,255,0.2);
+backdrop-filter:blur(15px);
+box-shadow:0 10px 40px rgba(0,0,0,0.25);
+text-align:center;
+color:white;
+position:relative;
+animation:popup 1s ease;
+transition:0.5s;
+}
+
+@keyframes popup{
+
+from{
+transform:scale(0.8);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+.card img{
+width:100%;
+height:350px;
+object-fit:cover;
+border-radius:25px;
+margin-bottom:20px;
+box-shadow:0 8px 20px rgba(0,0,0,0.25);
+transition:0.5s;
+}
+
+.card h1{
+font-size:36px;
+margin-bottom:15px;
+}
+
+.card p{
+font-size:20px;
+line-height:1.7;
+}
+
+/* next button */
+
+.next-btn{
+margin-top:25px;
+}
+
+.next-btn button{
+padding:15px 40px;
+border:none;
+border-radius:40px;
+background:white;
+color:#00bb66;
+font-size:20px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 8px 20px rgba(0,0,0,0.2);
+}
+
+.next-btn button:hover{
+transform:scale(1.08);
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+.card{
+width:90%;
+}
+
+.card img{
+height:280px;
+}
+
+.card h1{
+font-size:28px;
+}
+
+.card p{
+font-size:18px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- floating hearts -->
+
+<div class="hearts">
+
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+
+</div>
+
+<!-- card -->
+
+<div class="card">
+
+<img id="photo" src="a6ea8584-9c9c-48d8-80f5-b686f8f9ee02.jpg">
+
+<h1 id="title">Your Smile 💚</h1>
+
+<p id="message">
+Your smile has a way of making everything feel lighter and happier ✨
+</p>
+
+<div class="next-btn">
+
+<button onclick="nextCard()">Next 💚</button>
+
+</div>
+
+</div>
+
+<script>
+
+/* cards data */
+
+const cards = [
+
+{
+
+title:"Your Smile 💚",
+
+message:"Your smile has a way of making everything feel lighter and happier ✨",
+
+image:"a6ea8584-9c9c-48d8-80f5-b686f8f9ee02.jpg"
+
+},
+
+{
+
+title:"Your Presence ✨",
+
+message:"Some people bring peace wherever they go... and you are one of them 💚",
+
+image:"8c11e1f1-8935-4831-b90b-8d4473ee7ed7.jpg"
+
+},
+
+{
+
+title:"Your Kindness 🌸",
+
+message:"The way you care for others makes you truly beautiful inside and out 💖",
+
+image:"22a0ea1e-cdaa-49b9-a1fe-bc421656787c.jpg"
+
+},
+
+{
+
+title:"Your Importance 🫶",
+
+message:"No matter what happens, you will always remain special to me 💚",
+
+image:"a2840c9d-67ad-43ad-b173-6308f4679ab0.jpg"
+
+}
+
+];
+
+let index = 0;
+
+/* next card */
+
+function nextCard(){
+
+index++;
+
+if(index >= cards.length){
+
+window.location.href="universe.html";
+
+return;
+
+}
+
+document.getElementById("photo").src = cards[index].image;
+
+document.getElementById("title").innerHTML = cards[index].title;
+
+document.getElementById("message").innerHTML = cards[index].message;
+
+}
+
+</script>
+
+</body>
+
+</html>
