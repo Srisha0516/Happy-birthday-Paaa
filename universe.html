@@ -48,14 +48,17 @@ animation:twinkle 2s infinite alternate;
 }
 
 @keyframes twinkle{
+
 from{
 opacity:0.2;
 transform:scale(1);
 }
+
 to{
 opacity:1;
 transform:scale(1.8);
 }
+
 }
 
 /* 💚 floating hearts */
@@ -77,17 +80,21 @@ opacity:0.7;
 .hearts span:nth-child(7){left:90%;animation-duration:13s;}
 
 @keyframes float{
+
 0%{
 transform:translateY(0) rotate(0deg);
 opacity:0;
 }
+
 50%{
 opacity:1;
 }
+
 100%{
 transform:translateY(-120vh) rotate(360deg);
 opacity:0;
 }
+
 }
 
 /* 🌌 center message */
@@ -105,6 +112,22 @@ box-shadow:0 10px 40px rgba(255,255,255,0.08);
 animation:fadeUp 2s ease;
 }
 
+/* ✨ animation */
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(50px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
 .message-box h1{
 font-size:70px;
 margin-bottom:25px;
@@ -117,7 +140,7 @@ line-height:1.8;
 color:#f1f1f1;
 }
 
-/* ✨ glow effect */
+/* ✨ glow */
 
 .glow{
 color:#7dffb3;
@@ -163,6 +186,7 @@ animation-delay:3s;
 }
 
 @keyframes explode{
+
 0%{
 transform:scale(0);
 opacity:1;
@@ -182,43 +206,48 @@ box-shadow:
 80px 0 0 #ffffff,
 -80px 0 0 #00ffaa;
 }
+
 }
 
-/* 🌠 animation */
+/* 💚 buttons */
 
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(50px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* 💚 button */
-
-.next-btn{
+.buttons{
 margin-top:35px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
 }
 
-.next-btn button{
-padding:16px 45px;
+.buttons button{
+padding:16px 40px;
 border:none;
 border-radius:40px;
-font-size:22px;
+font-size:20px;
 font-weight:bold;
 cursor:pointer;
-background:#00ff88;
-color:#022b1b;
 transition:0.3s;
 box-shadow:0 8px 20px rgba(0,255,136,0.3);
 }
 
-.next-btn button:hover{
+.finish-btn{
+background:#00ff88;
+color:#022b1b;
+}
+
+.finish-btn:hover{
 transform:scale(1.08);
 background:#7dffb3;
+}
+
+.next-btn{
+background:white;
+color:#00bb66;
+}
+
+.next-btn:hover{
+transform:scale(1.08);
+background:#dffff0;
 }
 
 /* 📱 mobile */
@@ -231,16 +260,16 @@ padding:35px 20px;
 }
 
 .message-box h1{
-font-size:40px;
+font-size:42px;
 }
 
 .message-box p{
 font-size:20px;
 }
 
-.next-btn button{
-font-size:18px;
-padding:14px 30px;
+.buttons button{
+font-size:17px;
+padding:14px 25px;
 }
 
 }
@@ -284,9 +313,17 @@ padding:14px 30px;
 
 <p id="typing"></p>
 
-<div class="next-btn">
+<!-- buttons -->
 
-<button onclick="finish()">Forever Special 💚</button>
+<div class="buttons">
+
+<button class="finish-btn" onclick="finish()">
+Forever Special 💚
+</button>
+
+<button class="next-btn" onclick="nextPage()">
+Final Page ✨
+</button>
 
 </div>
 
@@ -316,7 +353,8 @@ starsContainer.appendChild(star);
 
 /* 💚 typing effect */
 
-const message = "No matter where life takes us... some people remain special forever 💚 You are one of those rare people who made my world brighter, happier, and more beautiful ✨";
+const message =
+"No matter where life takes us... some people remain special forever 💚 You are one of those rare people who made my world brighter, happier, and more beautiful ✨";
 
 let i = 0;
 
@@ -336,11 +374,19 @@ setTimeout(typeText,40);
 
 typeText();
 
-/* 💚 final button */
+/* 💚 popup button */
 
 function finish(){
 
 alert("Happy Birthday Once Again 💚✨");
+
+}
+
+/* ✨ next page */
+
+function nextPage(){
+
+window.location.href="finalpage.html";
 
 }
 
