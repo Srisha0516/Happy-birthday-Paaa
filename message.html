@@ -1,21 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>For You 💚</title>
 
 <style>
 
-body{
+*{
 margin:0;
-font-family:'Segoe UI',sans-serif;
-background:linear-gradient(to right,#00FF7F,#b8ffd8);
-color:#064d2f;
-text-align:center;
-overflow:hidden;
+padding:0;
+box-sizing:border-box;
 }
 
-/* birthday */
+body{
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#00ff88,#b8ffd8);
+overflow:hidden;
+height:100vh;
+color:white;
+}
+
+/* ✨ floating hearts */
+
+.hearts{
+position:fixed;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:0;
+}
+
+.hearts span{
+position:absolute;
+bottom:-100px;
+font-size:22px;
+animation:float 10s linear infinite;
+opacity:0.7;
+}
+
+.hearts span:nth-child(1){left:10%;animation-duration:8s;}
+.hearts span:nth-child(2){left:20%;animation-duration:12s;}
+.hearts span:nth-child(3){left:35%;animation-duration:9s;}
+.hearts span:nth-child(4){left:50%;animation-duration:11s;}
+.hearts span:nth-child(5){left:65%;animation-duration:7s;}
+.hearts span:nth-child(6){left:80%;animation-duration:10s;}
+.hearts span:nth-child(7){left:90%;animation-duration:13s;}
+
+@keyframes float{
+0%{
+transform:translateY(0) rotate(0deg);
+opacity:0;
+}
+50%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) rotate(360deg);
+opacity:0;
+}
+}
+
+/* 🎉 intro */
+
 #birthday{
 position:fixed;
 width:100%;
@@ -24,54 +74,162 @@ display:flex;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-background:linear-gradient(to right,#00FF7F,#b8ffd8);
+background:linear-gradient(135deg,#00ff88,#7dffd0);
 z-index:10;
+animation:fadeOut 1.5s ease forwards;
+animation-delay:3s;
 }
 
-/* hide main first */
+#birthday h1{
+font-size:70px;
+margin-bottom:20px;
+text-shadow:0 5px 15px rgba(0,0,0,0.2);
+animation:zoom 2s infinite alternate;
+}
+
+#birthday p{
+font-size:28px;
+}
+
+@keyframes zoom{
+from{
+transform:scale(1);
+}
+to{
+transform:scale(1.08);
+}
+}
+
+@keyframes fadeOut{
+to{
+opacity:0;
+visibility:hidden;
+}
+}
+
+/* 💚 main content */
+
 #main{
 display:none;
+position:relative;
+width:100%;
+height:100vh;
 }
 
-/* message box */
+/* 🌟 message card */
+
 .message-box{
 position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-background:white;
-padding:30px;
-border-radius:20px;
-width:60%;
-box-shadow:0 10px 20px rgba(0,0,0,0.2);
+width:65%;
+padding:45px;
+border-radius:30px;
+background:rgba(255,255,255,0.2);
+backdrop-filter:blur(15px);
+box-shadow:0 10px 40px rgba(0,0,0,0.2);
+text-align:center;
 z-index:2;
+animation:popup 1.2s ease;
 }
 
-/* text typing */
+@keyframes popup{
+from{
+transform:translate(-50%,-40%) scale(0.8);
+opacity:0;
+}
+to{
+transform:translate(-50%,-50%) scale(1);
+opacity:1;
+}
+}
+
+.message-box h2{
+font-size:50px;
+margin-bottom:25px;
+color:#ffffff;
+text-shadow:0 3px 10px rgba(0,0,0,0.2);
+}
+
 #text{
-font-size:18px;
-line-height:1.6;
+font-size:28px;
+line-height:1.8;
+font-weight:500;
+color:#ffffff;
 }
 
-/* photos */
+/* 📸 floating photos */
+
 .photo{
 position:absolute;
-width:100px;
-height:100px;
-border-radius:12px;
+width:150px;
+height:150px;
 object-fit:cover;
-opacity:0.9;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+animation:floatPhoto 4s ease-in-out infinite;
+transition:0.4s;
 }
 
-/* simple positions (safe) */
+.photo:hover{
+transform:scale(1.1);
+}
+
+@keyframes floatPhoto{
+0%{
+transform:translateY(0px);
+}
+50%{
+transform:translateY(-15px);
+}
+100%{
+transform:translateY(0px);
+}
+}
+
+/* positions */
+
 .p1{top:5%;left:5%;}
 .p2{top:5%;right:5%;}
-.p3{top:25%;left:10%;}
-.p4{top:25%;right:10%;}
-.p5{bottom:10%;left:10%;}
-.p6{bottom:10%;right:10%;}
-.p7{top:60%;left:40%;}
-.p8{top:10%;left:40%;}
+.p3{top:28%;left:8%;}
+.p4{top:28%;right:8%;}
+.p5{bottom:8%;left:10%;}
+.p6{bottom:8%;right:10%;}
+.p7{top:70%;left:42%;}
+.p8{top:8%;left:42%;}
+
+/* mobile */
+
+@media(max-width:768px){
+
+.message-box{
+width:90%;
+padding:25px;
+}
+
+.message-box h2{
+font-size:32px;
+}
+
+#text{
+font-size:20px;
+}
+
+.photo{
+width:90px;
+height:90px;
+}
+
+#birthday h1{
+font-size:42px;
+}
+
+#birthday p{
+font-size:20px;
+}
+
+}
 
 </style>
 
@@ -79,55 +237,97 @@ opacity:0.9;
 
 <body>
 
-<!-- 🎉 BIRTHDAY -->
-<div id="birthday">
-<h1>🎉 Happy Birthday 💚</h1>
-<p>You deserve all the happiness ✨</p>
+<!-- 💚 floating hearts -->
+
+<div class="hearts">
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
+<span>✨</span>
+<span>💚</span>
 </div>
 
-<!-- 💚 MAIN -->
+<!-- 🎉 intro -->
+
+<div id="birthday">
+
+<h1>🎉 Happy Birthday 💚</h1>
+
+<p>You deserve all the happiness in the world ✨</p>
+
+</div>
+
+<!-- 💚 main -->
+
 <div id="main">
 
+<!-- message -->
+
 <div class="message-box">
+
 <h2>You, Through My Eyes 💚</h2>
+
 <p id="text"></p>
+
 </div>
 
-<!-- 📸 PHOTOS (SAFE LIMIT) -->
+<!-- photos -->
+
 <img src="be3d9d03-9171-4a28-a863-80d63b6383cf.jpg" class="photo p1">
+
 <img src="6222e97a-15e5-4f23-9a38-510b3bd8c2b6.jpg" class="photo p2">
+
 <img src="5f6127d1-f402-4bf7-a9f0-8fd42cbdf061.jpg" class="photo p3">
+
 <img src="e50b7ca2-50a1-488d-a63e-6b870fe67d83.jpg" class="photo p4">
+
 <img src="631a6283-dd65-4090-b085-1ad47f0e62fd.jpg" class="photo p5">
+
 <img src="2be4a050-56c9-4509-9f26-03703da0e1ab.jpg" class="photo p6">
+
 <img src="11b1926b-ef85-4412-8c93-10512320e003.jpg" class="photo p7">
+
 <img src="811d6136-3607-4825-9aa8-fb04ce182d00.jpg" class="photo p8">
 
 </div>
 
 <script>
 
-// switch screen
+/* show main page */
+
 setTimeout(function(){
-document.getElementById("birthday").style.display="none";
+
 document.getElementById("main").style.display="block";
+
 startTyping();
+
 },3000);
 
-// typing effect
-var msg="You are someone who brings happiness wherever you go... 💚 Your smile makes everything better. You are truly special to me 💚";
+
+/* typing text */
+
+var msg="You are someone who brings happiness wherever you go... 💚 Your smile makes everything brighter, your presence makes every moment beautiful, and you truly mean so much to me ✨💚";
 
 var i=0;
 
 function startTyping(){
+
 if(i < msg.length){
+
 document.getElementById("text").innerHTML += msg.charAt(i);
+
 i++;
-setTimeout(startTyping,40);
+
+setTimeout(startTyping,35);
+
 }
+
 }
 
 </script>
 
 </body>
+
 </html>
