@@ -177,10 +177,14 @@ min-height:140px;
 margin-top:15px;
 }
 
-/* button */
+/* buttons */
 
 .end-btn{
 margin-top:40px;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:15px;
 }
 
 .end-btn button{
@@ -199,6 +203,17 @@ box-shadow:0 8px 20px rgba(0,255,136,0.3);
 .end-btn button:hover{
 transform:scale(1.08);
 background:#7dffb3;
+}
+
+/* home button */
+
+.home-btn{
+background:white !important;
+color:#00aa66 !important;
+}
+
+.home-btn:hover{
+background:#dffff0 !important;
 }
 
 /* 💚 scrollbar */
@@ -246,6 +261,7 @@ min-height:180px;
 .end-btn button{
 font-size:18px;
 padding:14px 30px;
+width:100%;
 }
 
 }
@@ -278,7 +294,7 @@ padding:14px 30px;
 
 <div class="final-box">
 
-<!-- final image -->
+<!-- 💚 your final image -->
 
 <img src="cc8699ad-b381-43ee-9a7d-21fd6f10b623.jpg">
 
@@ -286,10 +302,16 @@ padding:14px 30px;
 
 <p id="typing"></p>
 
+<!-- buttons -->
+
 <div class="end-btn">
 
 <button onclick="ending()">
 The End ✨
+</button>
+
+<button onclick="goHome()" class="home-btn">
+Back To Start 💚
 </button>
 
 </div>
@@ -298,12 +320,10 @@ The End ✨
 
 <script>
 
-/* typing effect */
+/* 💚 typing effect */
 
 const message =
 "No matter where life takes us... 💚 you will always be special to me ✨ Thank you for every smile, every memory, and every beautiful moment. Some people are unforgettable... and you are one of them 🌸 I Love You Paa 💚";
-
-/* typing animation */
 
 let i = 0;
 
@@ -323,11 +343,19 @@ setTimeout(typeText,45);
 
 typeText();
 
-/* end popup */
+/* ✨ end popup */
 
 function ending(){
 
 alert("Happy Birthday Once Again 💚✨");
+
+}
+
+/* 💚 back to password/start page */
+
+function goHome(){
+
+window.location.href="index.html";
 
 }
 
